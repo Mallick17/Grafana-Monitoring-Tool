@@ -226,3 +226,23 @@ http://<Public-IPv4>:9090
 ```
 **Check Targets**
 *Navigate to Status > Targets in the Prometheus UI. Ensure that the node-exporter job is listed and its status is UP.*
+
+---
+
+### Setting Up Grafana Dashboard for Node Exporter Metrics
+Follow these steps to configure and import a pre-built Node Exporter dashboard into Grafana.
+
+#### Step 1: Add Prometheus as a Data Source  
+1. **Access Grafana UI**  
+   Open Grafana in your browser:  
+   ```sh
+   http://<Public-IPv4>:3000
+2. **Add Data Source**
+- Click Add your First Data Source (or navigate to Configuration > Data Sources if this is not the first data source).
+- Select Prometheus as the data source.
+- Enter the following details: <br>
+   Name: Prometheus (or any meaningful name).<br>
+   URL: http://<Public-IPv4>:9090 (replace <Public-IPv4> with the Prometheus server's IP).
+3. **Save & Test** <br>
+   Click Save & Test to verify the connection.<br>
+   Return to the Home page.
