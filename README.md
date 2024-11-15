@@ -34,7 +34,7 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    ./bin/grafana-server
    ```
 3. **Accessing Grafana UI**
-   After following the installation method, you can access Grafana by visiting:
+   After following the installation method, we can access Grafana by visiting:
    ```sh
    http://<Public-IPv4>:3000
    ```
@@ -50,7 +50,7 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    docker ps
    ```
 3. **Accessing Grafana UI**
-   After following the installation method, you can access Grafana by visiting:
+   After following the installation method, we can access Grafana by visiting:
    ```sh
    http://<Public-IPv4>:3000
    ```
@@ -79,7 +79,7 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    ./prometheus --config.file=prometheus.yml
    ```
 5. **Accessing Prometheus UI**
-   After starting Prometheus, you can access it by visiting
+   After starting Prometheus, we can access it by visiting
    ```sh
    http://<Public-IPv4>:9090
    ```
@@ -95,7 +95,7 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    docker ps
    ```
 3. **Accessing Prometheus UI**
-   After following the installation method, you can access Prometheus by visiting:
+   After following the installation method, we can access Prometheus by visiting:
    ```sh
    http://<Public-IPv4>:3000
    ```
@@ -112,7 +112,72 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    ```sh
    wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
    ```
+2. **Extract the Package & Navigate to Node Exporter Directory**
+   ```sh
+   tar -zxvf node_exporter-1.8.2.linux-amd64.tar.gz
+   cd node_exporter-1.8.2.linux-amd64/
+   ```
+3. **Move Node Exporter to a Standard Location**
+   ```sh
+   sudo cp node_exporter /usr/local/bin
+   ```
+4. **Verify Node Exporter Installation & Navigate to the directory and check**
+   ```sh
+   cd /usr/local/bin
+   ls
+   ```
+5. **Set Up Node Exporter User**
+   Creating a system user for Node Exporter with restricted access:
+   ```sh
+   sudo useradd --no-create-home --shell /bin/false node_exporter
+   ```
+6. **Set Ownership for Node Exporter**
+   Change ownership of the binary to the Node Exporter user
+   ```sh
+   sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
+   ```
+7. **Create a Systemd Service File**
+   Navigate to the systemd configuration directory & Create a service file
+   ```sh
+   cd /etc/systemd/system/
+   sudo vi node_exporter.service
+   ```
+   Add the following content:
+   ```sh
+   [Unit]
+   Description=Node Exporter
+   Wants=network-online.target
+   After=network-online.target
+
+   [Service]
+   User=node_exporter
+   Group=node_exporter
+   Type=simple
+   ExecStart=/usr/local/bin/node_exporter
+   Restart=always
+   RestartSec=3
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
    
+8. **Reload and Enable Node Exporter Service**
+   Reload systemd to apply changes and enable the Node Exporter service
+   ```sh
+   sudo systemctl daemon-reload
+   sudo systemctl enable node_exporter
+   ```
+9. **Start and Verify Node Exporter**
+   Start the Node Exporter service & Check the service status
+   ```sh
+   sudo systemctl start node_exporter
+   sudo systemctl status node_exporter.service
+   ```
+10. **Accessing Node Exporter Metrics**
+  After starting Node Exporter, we can access it by visiting:
+   ```sh
+   http://<Public-IPv4>:9100
+   ``` 
 
 
 
