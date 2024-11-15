@@ -45,5 +45,28 @@ This guide covers two methods for installing Grafana on Linux AMI:
    ```sh
    ./bin/grafana-server
    ```
-3. **Copy the public IPv4 address with port no:3000** 
+3. **Accessing Grafana UI**
+   After following the installation method, you can access Grafana by visiting:
+   ```sh
+   http://<Public-IPv4>:3000
+   ```
+### Grafana Installation using Docker on Linux
+1. **Pull Grafana Docker Image**
+   ```sh
+   docker pull grafana/grafana
+   ```
+2. **Verify the Image and Run Grafana in a Container by assigning the port no. and verify the running container**
+   ```sh
+   docker images
+   docker run -it -d -p 3000:3000 grafana/grafana
+   docker ps
+   ```
+3. **Accessing Grafana UI**
+   After following the installation method, you can access Grafana by visiting:
+   ```sh
+   http://<Public-IPv4>:3000
+   ```
+
+   
+
    
