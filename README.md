@@ -244,5 +244,22 @@ Follow these steps to configure and import a pre-built Node Exporter dashboard i
    Name: Prometheus (or any meaningful name).<br>
    URL: http://<Public-IPv4>:9090 (replace <Public-IPv4> with the Prometheus server's IP).
 3. **Save & Test** <br>
-   Click Save & Test to verify the connection.<br>
+   Click ```Save & Test``` to verify the connection.<br>
    Return to the Home page.
+#### Step 2: Create a Dashboard
+- Click Create your First Dashboard (or + > Dashboard from the sidebar menu).
+- Select Import Dashboard to import a pre-built dashboard.
+#### Step 3: Import Node Exporter Dashboard
+1. Visit Grafana Dashboards.
+2. Search for Node Exporter Full (a popular pre-built dashboard).
+3. Choose one of the following options:
+- Copy the Dashboard ID from the page (e.g., 1860).
+- OR Download the JSON File to your system.
+4. Go back to the Grafana UI and import the dashboard:
+- Paste the copied Dashboard ID into the Import via grafana.com field.
+- OR upload the downloaded JSON File.
+5. Select the appropriate Prometheus Data Source from the dropdown during import.
+#### Step 4: View and Monitor Metrics
+Once the dashboard is imported:
+- Navigate to ```Dashboards > Manage Dashboards``` to view the imported Node Exporter dashboard.
+- The dashboard will display real-time metrics scraped by Prometheus from Node Exporter.
