@@ -8,11 +8,11 @@ An open-source monitoring tool used to collect, store, and query metrics data. I
 ### Node Exporter:
 A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from the server or node it’s installed on. This acts as a source of data for Prometheus.
 ## How the Tools Work Together
-*Data Collection* Node Exporter collects system metrics from your server.
+**Data Collection** Node Exporter collects system metrics from your server.
 <br>
-*Data Storage and Retrieval* Prometheus pulls metrics from Node Exporter and stores them. Prometheus also provides a query language (PromQL) for filtering and analyzing the metrics.
+**Data Storage and Retrieval** Prometheus pulls metrics from Node Exporter and stores them. Prometheus also provides a query language (PromQL) for filtering and analyzing the metrics.
 <br>
-*Visualization* Grafana connects to Prometheus to retrieve these metrics and display them on custom dashboards. You can set up alerts in Grafana to notify you when specific conditions are met.
+**Visualization** Grafana connects to Prometheus to retrieve these metrics and display them on custom dashboards. You can set up alerts in Grafana to notify you when specific conditions are met.
 
 ### Standalone Grafana Installation on Linux
 
