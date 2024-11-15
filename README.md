@@ -102,6 +102,17 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
 
 ---
 
+### Node Exporter Installation and Configuration on Linux
+
+1. **Download Node Exporter**  
+   Go to the [Prometheus Node Exporter download page](https://prometheus.io/download/#node_exporter) and select:
+   - **Linux**
+
+   Use the following command to download the package:
+   ```sh
+   wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
+   ```
+   
 
 
 
