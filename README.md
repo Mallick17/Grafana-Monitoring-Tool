@@ -218,4 +218,11 @@ docker run -d --name=prometheus -p 9090:9090 -v /root/prometheus.yml:/etc/promet
 - Runs Prometheus in detached mode (-d).<br>
 - Maps port 9090 on the host to port 9090 in the container.<br>
 - Mounts the updated configuration file located at /root/prometheus.yml to the Prometheus container’s configuration directory /etc/prometheus/prometheus.yml.
-   
+
+#### Step 4: Verify the Setup
+**Access Prometheus UI: Open the Prometheus web interface**
+```sh
+http://<Public-IPv4>:9090
+```
+**Check Targets**
+*Navigate to Status > Targets in the Prometheus UI. Ensure that the node-exporter job is listed and its status is UP.*
