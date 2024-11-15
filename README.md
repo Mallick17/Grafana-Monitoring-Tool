@@ -34,6 +34,9 @@ This guide covers two methods for installing Grafana on Linux AMI:
    - **Standalone Linux Binaries**
 
 2. **Extract the Package**  
-   Run the following command to extract the downloaded file (replace the filename with the correct version you downloaded):
-   ```bash
-   tar -zxvf grafana-enterprise-11.3.0+security-01.linux-amd64.tar.gz
+   Run the following command to extract the downloaded file:
+   ``` tar -zxvf grafana-enterprise-11.3.0+security-01.linux-amd64.tar.gz ```
+   ``` cd grafana-v11.3.0+security-01/ ```
+   To start Grafana server:
+   ``` ./bin/grafana-server ```
+   
