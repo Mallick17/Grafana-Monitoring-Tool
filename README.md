@@ -174,10 +174,10 @@ A tool that provides system-level metrics (CPU, memory, disk usage, etc.) from t
    sudo systemctl status node_exporter.service
    ```
 10. **Accessing Node Exporter Metrics**
-  After starting Node Exporter, we can access it by visiting:
-   ```sh
-   http://<Public-IPv4>:9100
-   ``` 
+    After starting Node Exporter, we can access it by visiting:
+    ```sh
+    http://<Public-IPv4>:9100
+    ``` 
 
 
 
