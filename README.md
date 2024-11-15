@@ -66,7 +66,56 @@ This guide covers two methods for installing Grafana on Linux AMI:
    ```sh
    http://<Public-IPv4>:3000
    ```
-
    
+---
+
+### Standalone Prometheus Installation on Linux
+
+1. **Download Prometheus**  
+   Go to the [Prometheus download page](https://prometheus.io/docs/introduction/first_steps/) and select:
+   - **Linux**
+
+2. **Download and Extract the Package**  
+   Run the following commands to download and extract the Prometheus package:
+   ```sh
+   wget https://github.com/prometheus/prometheus/releases/download/v3.0.0-rc.1/prometheus-3.0.0-rc.1.linux-amd64.tar.gz
+   tar -zxvf prometheus-3.0.0-rc.1.linux-amd64.tar.gz
+   ```
+3. **Navigate to Prometheus Directory & View Configuration File**
+   ```sh
+   cd prometheus-3.0.0-rc.1.linux-amd64/
+   cat prometheus.yml
+   ```
+4. **Start Prometheus Server**
+   ```sh
+   ./prometheus --config.file=prometheus.yml
+   ```
+5. **Accessing Prometheus UI**
+   After starting Prometheus, you can access it by visiting
+   ```sh
+   http://<Public-IPv4>:9090
+   ```
+### Prometheus Installation using Docker on Linux
+1. **Pull Prometheus Docker Image**
+   ```sh
+   docker pull prom/prometheus
+   ```
+2. **Verify the Image and Run Prometheus in a Container by assigning the port no. and verify the running container**
+   ```sh
+   docker images
+   docker run -it -d -p 9090:9090 prom/prometheus
+   docker ps
+   ```
+3. **Accessing Prometheus UI**
+   After following the installation method, you can access Prometheus by visiting:
+   ```sh
+   http://<Public-IPv4>:3000
+   ```
+
+---
+
+
+
+
 
    
