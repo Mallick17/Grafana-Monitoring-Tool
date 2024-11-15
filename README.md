@@ -42,5 +42,8 @@ This guide covers two methods for installing Grafana on Linux AMI:
     cd grafana-v11.3.0+security-01/
    ```
    To start Grafana server:
-   ```sh ./bin/grafana-server ```
+   ```sh
+   ./bin/grafana-server
+   ```
+3. **Copy the public IPv4 address with port no:3000** 
    
