@@ -181,8 +181,41 @@ Grafana connects to Prometheus to retrieve these metrics and display them on cus
     ```sh
     http://<Public-IPv4>:9100
     ``` 
+---
 
+### Attaching Node Exporter to Prometheus
 
+This section explains how to configure Prometheus to monitor metrics from Node Exporter.
 
+#### Step 1: Stop and Remove the Existing Prometheus Container  
+Before attaching Node Exporter, stop and remove any previously running Prometheus container that might be using port 9090.
 
+```sh
+docker stop <container_id>
+docker rm <container_id>
+```
+#### Step 2: Modify Prometheus Configuration File
+Create and modify the ```prometheus.yml``` configuration file to add Node Exporter as a scrape target. Place this file in the root directory or another accessible location.
+**Open the ```prometheus.yml``` file using a text editor**
+```sh
+vi /root/prometheus.yml
+```
+**Add the following scrape configuration for Node Exporter:**
+```sh
+scrape_configs:
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['<public_ip>:9100']
+```
+Replace <public_ip> with the public IPv4 address of the server running Node Exporter.
+
+#### Step 3: Restart Prometheus with the Updated Configuration
+Mount the updated ```prometheus.yml``` configuration file into the Prometheus container and start a new container:
+```sh
+docker run -d --name=prometheus -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+```
+*This command:* <br>
+- Runs Prometheus in detached mode (-d).<br>
+- Maps port 9090 on the host to port 9090 in the container.<br>
+- Mounts the updated configuration file located at /root/prometheus.yml to the Prometheus container’s configuration directory /etc/prometheus/prometheus.yml.
    
